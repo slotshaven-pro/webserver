@@ -1,0 +1,30 @@
+<html>
+<head>
+    <title>HTTP POST EXAMPLEe</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+</head>
+<body>
+    <div class="App">
+        <header class="App-header">
+            <h1>POST Fibonacci</h1>
+          <!-- Add form to input Fibonacci index -->
+            <form method="POST" action="{{ url_for('post_page') }}">
+                <label for="fib_index_input">Enter number:</label>
+                <input type="number" id="post_input_id" name="post_input" min="0" required>
+                <button type="submit">Send</button>
+            </form>
+        <div class="App-content">
+            <p>input: {{ post_param }}</p>
+             <p>value: {{ calculated_fib }}</p>
+          
+          </div>  
+          <footer class="App-footer">
+            <p class="small">
+                Template <code>templates/http-post.html</code>
+            </p>
+          </footer>
+        </header>
+    </div>
+</body>
+
+</html>

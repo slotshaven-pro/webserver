@@ -1,0 +1,21 @@
+<html>
+<head>
+    <title>Websted med HTTP GET og POST</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+</head>
+<body>
+    <div class="App">
+        <header class="App-header">
+            <img src="{{ url_for('static', filename='slotshaven-logo.png') }}" class="App-logo" alt="logo" " />
+            <h2>Webserver med Python og flask</h2>
+            <h3 id="id1" class="class1">
+              Background-color set by: 
+            </h3>
+            <p>
+              <a href="{{ url_for('get_page', get_input=3) }}">GET request</a> |
+              <a href="{{ url_for('post_page') }}">POST request</a>
+            </p>
+        </header>
+    </div>
+</body>
+</html>

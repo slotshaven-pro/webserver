@@ -1,0 +1,28 @@
+<html>
+<head>
+    <title>Python med flask og sqlite3</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+</head>
+<body>
+    <div class="App">
+        <header class="App-header">
+            <img src="{{ url_for('static', filename='slotshaven-logo.png') }}" class="App-logo" alt="logo" />
+            <h1>flask og sqlite3</h1>
+            <form method="post" action="">
+              <input type="text" name="search_term" placeholder="Search..." required>
+              <button type="submit">Search</button>
+            </form>
+            <h2>Beatles Albums</h2>
+            {% if not members.members %}
+              <p>No results found.</p>
+            {% endif %}
+            <ul>
+               {% for member in members.members %}
+                <li>{{ member.title }} ({{ member.yyear }})</li>
+              {% endfor %}
+            </ul>
+        </header>
+    </div>
+</body>
+
+</html>

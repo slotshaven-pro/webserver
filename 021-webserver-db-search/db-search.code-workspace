@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{ 
+			"path": "."
+		}
+	],
+	"settings": {
+		"window.title": "Flask with sqlite3",
+		"python.terminal.activateEnvInCurrentTerminal": true,
+		"editor.tabSize": 2,
+		"editor.indentSize": "tabSize",
+		"editor.detectIndentation": false,
+	}
+}

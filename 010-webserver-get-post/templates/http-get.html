@@ -1,0 +1,24 @@
+<html>
+<head>
+    <title>HTTP GET EXAMPLE</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+</head>
+<body>
+    <div class="App">
+        <header class="App-header">
+          <h1>GET Fibonacci</h1>
+            <p>
+                GET request example - change URL parameter value to try it.
+            </p>
+            <div class="App-content">
+              <p>input: {{ get_input }}</p>
+              <p>value: {{ calculated_fib }}</p>
+          </div>
+            <p class="small">
+              Template: http-get.html
+            </p>
+        </header>
+    </div>
+</body>
+
+</html>

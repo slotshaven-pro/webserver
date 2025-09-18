@@ -1,0 +1,21 @@
+<html>
+<head>
+    <title>Eksempel: websted med database</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+</head>
+<body>
+    <div class="App">
+        <header class="App-header">
+            <img src="{{ url_for('static', filename='slotshaven-logo.png') }}" class="App-logo" alt="logo" />
+            <h1>Websted med database: Beatles</h1>
+            <h2>Beatles-albums</h2>
+            <ul>
+               {% for member in members.members %}
+                <li>{{ member.title }} ({{ member.yyear }})</li>
+              {% endfor %}
+            </ul>
+        </header>
+    </div>
+</body>
+
+</html>
