@@ -5,7 +5,7 @@
 		}
 	],
 	"settings": {
-		"window.title": "PRO3 main project - working examples",
+		"window.title": "Webserver - fungerende eksempler",
 		"python.terminal.activateEnvInCurrentTerminal": true,
 		"editor.tabSize": 4,
 		"editor.indentSize": "tabSize",
