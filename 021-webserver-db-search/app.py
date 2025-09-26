@@ -30,7 +30,7 @@ def search_page():
 def db_search(search_term):
     db = get_db_albums()
     # Perform a search in the database with the LIKE operator
-    cur = db.execute("SELECT title, yyear FROM album WHERE title LIKE ?", ('%' + search_term + '%',))
+    cur = db.execute("SELECT title, pubyear FROM album WHERE title LIKE ?", ('%' + search_term + '%',))
     data = cur.fetchall()
     members = {"members": [dict(u) for u in data]}
     return render_template("search.html", title="Search Results", members=members)
