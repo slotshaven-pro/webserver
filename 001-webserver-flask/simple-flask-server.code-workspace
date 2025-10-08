@@ -1,15 +1,15 @@
 {
 	"folders": [
-		{ 
+		{
 			"path": "."
 		}
 	],
 	"settings": {
 		"window.title": "Eksempel 1: Simpel webserver",
-		 "python.terminal.activateEnvInCurrentTerminal": true,
+		"python.terminal.activateEnvInCurrentTerminal": true,
 		"editor.tabSize": 4,
 		"editor.indentSize": "tabSize",
-  	"editor.insertSpaces": true,
+		"editor.insertSpaces": true,
 		"files.trimTrailingWhitespace": true,
 		"files.insertFinalNewline": true,
 		"git.enableSmartCommit": true,

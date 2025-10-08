@@ -4,5 +4,15 @@
 			"path": "."
 		}
 	],
-	"settings": {}
+	"settings": {
+		"window.title": "Database-scripts",
+		"python.terminal.activateEnvInCurrentTerminal": true,
+		"editor.tabSize": 4,
+		"editor.indentSize": "tabSize",
+		"editor.insertSpaces": true,
+		"files.trimTrailingWhitespace": true,
+		"files.insertFinalNewline": true,
+		"git.enableSmartCommit": true,
+		"git.confirmSync": false
+	},
 }
