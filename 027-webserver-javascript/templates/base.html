@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{% block title %}My webserver{% endblock %}</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='main.css') }}"
+    />
+  </head>
+  <body>
+    <div class="App">
+      <div id="page_count"></div>
+      <header class="App-header">
+        <img
+          src="{{ url_for('static', filename='slotshaven-logo.png') }}"
+          class="App-logo"
+          alt="logo"
+        />
+        <nav class="menu">
+          <a href="/" class="{% if request.path == '/' %}active{% endif %}"
+            >Home</a
+          >
+          <span class="separator"></span>
+          <a
+            href="/search"
+            class="{% if request.path == '/search' %}active{% endif %}"
+            >Search</a
+          >
+          <span class="separator"></span>
+          <a
+            href="/about"
+            class="{% if request.path == '/about' %}active{% endif %}"
+            >About</a
+          >
+          <span class="separator"></span>
+          <a
+            href="/techstack"
+            class="{% if request.path == '/techstack' %}active{% endif %}"
+            >Tech Stack</a
+          >
+        </nav>
+      {% block content %}{% endblock %}
+    </div>
+     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+  </body>
+</html>

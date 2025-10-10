@@ -1,0 +1,25 @@
+{% extends "base.html" %} {% block title %}Search Page{% endblock %} {% block
+content %}
+        <h1>Brugerdatabase</h1>
+        <form method="post" action="">
+          <input
+            type="text"
+            name="search_term"
+            placeholder="Search..."
+            required
+          />
+          <button type="submit">Search</button>
+        </form>
+        <div class="results">
+          {% if not members.members %}
+          <p>No results found.</p>
+          {% endif %} {% for member in members.members %}
+          <details>
+            <summary>{{ member.uname }}</summary>
+            Password: {{ member.password }}
+          </details>
+          {% endfor %}
+        </div>
+      </header>
+    </div>
+{% endblock %}
