@@ -1,9 +1,11 @@
 from flask import Flask, request, render_template, g
+from pathlib import Path
 import sqlite3
 
 # Import Flask and other necessary modules
 app = Flask(__name__)
-DB_ALBUM = "./db/beatles.db"
+BASE_DIR = Path(__file__).resolve().parent
+DB_ALBUM = str((BASE_DIR / "db" / "beatles.db").resolve())
 
 def get_db_albums():
     if "db" not in g:
@@ -37,7 +39,7 @@ def search_page():
 def about_page():
   return render_template("default.html", title="About")
 
-# Tech Stack 
+# Tech Stack
 @app.route("/techstack")
 def techstack_page():
   return render_template("default.html", title="Tech Stack")
