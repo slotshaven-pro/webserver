@@ -1,34 +1,51 @@
 # Programmering B for 3g
+
 Materiale til undervisningen i programmering B på Slotshaven Gymnasium HTX i Holbæk.
 
-Bemærk at dette workspace ikke er et websted i _sig selv_ - men indeholder en række underprojekter med websteder.
-Hvert underprojekt indeholder et workspace hvorfra webstedet startes. Man skal altså køre projekter fra deres eget workspace.
-Læs sektion **Sådan gør du** grundigt før du begynder.
-
 ## Progression
+
 Forløbet følger en simpel progression.
 
+Vi tilføjer ny funktionalitet et skridt af gangen.
+Her er planen:
+
+- websted med flask
+- routes
+- templates
+- GET-requests med parametre
+- POST-requests med formdata
+- dynamisk data fra database med sql
+- søgning i database med sql
+- styling med css
+- javascript
+
 ### Simpelt websted med flask
+
 Simpelt websted med frameworket flask.
 
 Begreber:
+
 - routes
 - templates
 - static files (css, images)
 
 ### Websted med GET og POST
+
 Websted med eksempler på brug af HTTP GET og POST.
 
 Begreber:
+
 - GET (url-parametre)
 - POST (form-data)
 - routes med HTTP-metoder
 - styling med CSS-selectors
 
 ### Websted med database
+
 Websted med data fra database.
 
 Begreber:
+
 - sqlite3
 - database-filer
 - database: felter
@@ -36,28 +53,26 @@ Begreber:
 - installation af biblioteker med requirements.txt
 
 ### Websted med søgning
+
 Websted med søgning i data fra database.
 
 Begreber:
+
 - sql med LIKE
 
 ## Sådan gør du
-tldr;
 
-Vigtigt: Projekt skal eksekveres ("køre i") i sin egen mappe.
+I dette prjekt bygger vi et website fra bunden.
 
-Det er den mappe som man "står i" i konsollen der er bestemmer i hvilken mappe projektet kører i. Så man skal "skifte" (`cd [mappe]`) til den mappe som projektet ligger i.
+Opret et workspace lokalt og kald det "webserver".
+Opret virtuelt miljø og installer flask.
 
-**Metode 1 - anbefalet**
-Brug workspace.
-Åben det workspace som ligger i det projekt som du vil arbejde med.
+Kopier eksemplerne fra GitHub efterhånden som vi går frem,
+i den rækkefølge som vi gennemgår eksemplerne.
 
-- dobbeltklik på det, eller
-- åben en ny udgave af VS Code og åben workspace
+På den måde bygger vi efterhånden et website med alle komponenter:
 
-**Metode 2**
-Brug konsol.
-Skift til den rigtige mappe først i konsolen med ``cd [mappe]``.
-Start webserver med ``python app.py`` eller klik på pilen i højre hjørne.
-
-
+- routes og templates
+- databaser med SQL
+- styling med CSS
+- interaktive sider med JavaScript
