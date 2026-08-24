@@ -4,7 +4,6 @@ Projektet indeholder eksempler på forskellige sql-scripts til oprettelse af dat
 
 Før de kan bruges til egne formål, skal de modificeres. Læs kommentarerne i koden.
 
-
 ## IDE udvidelser
 
 Anbefalet udvidelse: Sqlite Explorer. Kan bruges til at inspicere sqlite3-databaser.
