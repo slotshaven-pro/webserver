@@ -5,11 +5,14 @@ import sqlite3
 app = Flask(__name__)
 DB_ALBUM = "./db/beatles.db"
 DB_USERS = "./db/users.db"
+
+
 def get_db_albums():
     if "db" not in g:
         g.db = sqlite3.connect(DB_ALBUM)
         g.db.row_factory = sqlite3.Row  # optional, for dict-like rows
     return g.db
+
 
 def get_db_users():
     if "db" not in g:
@@ -24,6 +27,7 @@ def close_db(exception):
     if db is not None:
         db.close()
 
+
 # Define the main route for the application
 @app.route("/beatles")
 def beatles_page():
@@ -33,13 +37,15 @@ def beatles_page():
     members = {"members": [dict(u) for u in data]}
     return render_template("albums.html", title="Welcome", members=members)
 
+
 @app.route("/")
 def front_page():
     user_db = get_db_users()
-    cur = user_db.execute("SELECT uid, uname, password FROM user")
+    cur = user_db.execute("SELECT uid, uname, password FROM users")
     data = cur.fetchall()
     users = {"users": [dict(u) for u in data]}
     return render_template("index.html", title="Welcome", users=users)
+
 
 # Start Flask server
 if __name__ == "__main__":
