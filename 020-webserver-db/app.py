@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template, g
+from flask import Flask, request, render_template
 import sqlite3
 
 # Import Flask and other necessary modules
@@ -7,44 +7,28 @@ DB_ALBUM = "./db/beatles.db"
 DB_USERS = "./db/users.db"
 
 
-def get_db_albums():
-    if "db" not in g:
-        g.db = sqlite3.connect(DB_ALBUM)
-        g.db.row_factory = sqlite3.Row  # optional, for dict-like rows
-    return g.db
+def get_db(db, query):
+    conn = sqlite3.connect(db)
+    conn.row_factory = sqlite3.Row
+    cur = conn.cursor()
+    cur.execute(query)
+    res = cur.fetchall()
+    cur.close()
+    conn.close()
+    return res
 
 
-def get_db_users():
-    if "db" not in g:
-        g.db = sqlite3.connect(DB_USERS)
-        g.db.row_factory = sqlite3.Row  # optional, for dict-like rows
-    return g.db
-
-
-@app.teardown_appcontext
-def close_db(exception):
-    db = g.pop("db", None)
-    if db is not None:
-        db.close()
+@app.route("/beatles")
+def beatles_page():
+    data = get_db(DB_ALBUM, "select * from album")
+    return render_template("albums.html", title="Welcome", items=data)
 
 
 # Define the main route for the application
-@app.route("/beatles")
-def beatles_page():
-    db = get_db_albums()
-    cur = db.execute("SELECT title, yyear FROM album")
-    data = cur.fetchall()
-    members = {"members": [dict(u) for u in data]}
-    return render_template("albums.html", title="Welcome", members=members)
-
-
 @app.route("/")
 def front_page():
-    user_db = get_db_users()
-    cur = user_db.execute("SELECT uid, uname, password FROM users")
-    data = cur.fetchall()
-    users = {"users": [dict(u) for u in data]}
-    return render_template("index.html", title="Welcome", users=users)
+    data = get_db(DB_USERS, "select * from users")
+    return render_template("index.html", title="Welcome", users=data)
 
 
 # Start Flask server

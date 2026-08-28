@@ -10,8 +10,8 @@
             <h1>Websted med database: Beatles</h1>
             <h2>Beatles-albums</h2>
             <ul>
-               {% for member in members.members %}
-                <li>{{ member.title }} ({{ member.yyear }})</li>
+               {% for item in items %}
+                <li>{{ item[1] }} ({{ item[2]}} ) </li>
               {% endfor %}
             </ul>
         </header>
