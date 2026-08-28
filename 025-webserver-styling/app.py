@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template, g
+from flask import Flask, request, render_template
 from pathlib import Path
 import sqlite3
 
@@ -7,17 +7,15 @@ app = Flask(__name__)
 BASE_DIR = Path(__file__).resolve().parent
 DB_ALBUM = str((BASE_DIR / "db" / "beatles.db").resolve())
 
-def get_db_albums():
-    if "db" not in g:
-        g.db = sqlite3.connect(DB_ALBUM)
-        g.db.row_factory = sqlite3.Row  # optional, for dict-like rows
-    return g.db
-
-@app.teardown_appcontext
-def close_db(exception):
-    db = g.pop("db", None)
-    if db is not None:
-        db.close()
+def get_db(db, query, params=()):
+    conn = sqlite3.connect(db)
+    conn.row_factory = sqlite3.Row
+    cur = conn.cursor()
+    cur.execute(query, params)
+    res = cur.fetchall()
+    cur.close()
+    conn.close()
+    return res
 
 # Define the frontpage route for the application
 @app.route("/")
@@ -45,10 +43,12 @@ def techstack_page():
   return render_template("default.html", title="Tech Stack")
 
 def db_search(search_term):
-    db = get_db_albums()
     # Perform a search in the database with the LIKE operator
-    cur = db.execute("SELECT title, yyear FROM album WHERE title LIKE ?", ('%' + search_term + '%',))
-    data = cur.fetchall()
+    data = get_db(
+        DB_ALBUM,
+        "SELECT title, yyear FROM album WHERE title LIKE ?",
+        ('%' + search_term + '%',),
+    )
     members = {"members": [dict(u) for u in data]}
     return render_template("search.html", title="Search Results", members=members)
 
