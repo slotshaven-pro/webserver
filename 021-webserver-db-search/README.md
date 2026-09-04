@@ -1,12 +1,19 @@
 # Eksempel 4: Website med søgning
 
-Dette projekt er et websted, der gør det muligt at søge i en database. Søgningen udføres mod en SQLite3-database ved hjælp af Python og Flask.
+Dette projekt introducerer søgning i en database fra et Flask-websted.
+Søgningen udføres mod en SQLite3-database ved hjælp af en HTML-formular,
+en Flask-route med `GET` og `POST`, og en SQL-forespørgsel med `LIKE`.
 
-**Eksempel på søgning mod database:**
-Når en bruger indtaster et søgeord i webstedets søgefelt, sendes forespørgslen til en Flask-route, som udfører en SQL-forespørgsel mod SQLite3-databasen og returnerer resultaterne til brugeren.
+## Hvad viser projektet?
+
+- Brugeren indtaster et søgeord i `templates/search.html`.
+- Formularen sendes med `POST` til Flask-routen `/`.
+- Flask læser søgeordet med `request.form.get()`.
+- SQL bruger `LIKE` til at finde albums, hvor titlen matcher søgeordet.
+- Resultaterne sendes tilbage til templaten og vises i browseren.
 
 **Anvendte teknologier:**
 - **Python:** Backend-programmeringssprog.
 - **Flask:** Webframework til at håndtere HTTP-forespørgsler og routing.
 - **SQLite3:** Letvægtsdatabase til lagring og forespørgsel af data.
-
+- **SQL LIKE:** Bruges til søgning i tekstfelter.

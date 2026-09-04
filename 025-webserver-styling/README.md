@@ -1,6 +1,8 @@
-# Eksempel 4: Website med base templates
+# Eksempel 5: Website med styling og base templates
 
-Dette projekt introducerer brugen af base templates i Flask. Pointen er, at fælles HTML-struktur kun skrives ét sted i `templates/base.html`, mens de enkelte sider genbruger layoutet og kun definerer deres eget indhold.
+Dette projekt introducerer styling og base templates i Flask. Pointen er, at
+fælles HTML-struktur og fælles styling samles ét sted, så de enkelte sider kan
+genbruge layoutet og kun definere deres eget indhold.
 
 `base.html` indeholder den fælles sideopbygning:
 
@@ -9,6 +11,9 @@ Dette projekt introducerer brugen af base templates i Flask. Pointen er, at fæl
 - logo fra `static/slotshaven-logo.png`
 - navigationsmenu
 - template blocks til sidetitel og sideindhold
+
+`static/main.css` indeholder den fælles styling for blandt andet layout, logo,
+menu, formular og søgeresultater.
 
 De andre templates arver fra `base.html` med:
 
@@ -34,6 +39,7 @@ På den måde kan layout, styling og menu ændres ét sted, uden at den samme HT
 - `templates/frontpage.html`: Forsiden, som arver fra base templaten.
 - `templates/search.html`: Søgesiden, som arver fra base templaten og viser en formular samt søgeresultater.
 - `templates/default.html`: Genbrugelig standardside til simple undersider som About og Tech Stack.
+- `static/main.css`: Fælles stylesheet for hele webstedet.
 
 Projektet indeholder også en søgefunktion mod en SQLite-database med Beatles-albums. Når en bruger søger på `/search`, sender Flask søgeordet videre til en SQL-forespørgsel, og resultaterne vises i `search.html`.
 
@@ -41,4 +47,5 @@ Projektet indeholder også en søgefunktion mod en SQLite-database med Beatles-a
 - **Python:** Backend-programmeringssprog.
 - **Flask:** Webframework til at håndtere HTTP-forespørgsler og routing.
 - **Jinja templates:** Flask templates med inheritance, `extends` og `block`.
+- **CSS:** Fælles styling for layout, menu og indhold.
 - **SQLite3:** Letvægtsdatabase til lagring og forespørgsel af data.

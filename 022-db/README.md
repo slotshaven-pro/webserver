@@ -1,6 +1,8 @@
 # Database scripts
 
-Projektet indeholder eksempler på forskellige sql-scripts til oprettelse af databaser med `sqlite3`.
+Projektet indeholder Python-scripts, der opretter SQLite3-databaser. Det er et
+hjælpeprojekt til webserver-eksemplerne, hvor databaserne senere kan bruges fra
+Flask.
 
 Før de kan bruges til egne formål, skal de modificeres. Læs kommentarerne i koden.
 
@@ -12,4 +14,4 @@ Anbefalet udvidelse: Sqlite Explorer. Kan bruges til at inspicere sqlite3-databa
 
 **db-init.py** Opretter en database med Beatles-albums. Data er defineret i scriptet.
 
-**db-from-csv** Opretter en database med kunstværker. Data ligger i en csv-fil i folderen `csv`.
+**db-from-csv.py** Opretter en database med kunstværker. Data ligger i en csv-fil i folderen `csv`.
